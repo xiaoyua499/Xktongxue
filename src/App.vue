@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view/>
+    <TabBar />
   </div>
 </template>
+<script>
+// @ is an alias to /src
+import TabBar from '@/components/TabBar.vue'
 
+export default {
+  name: 'App',
+  components: {
+    TabBar
+  }
+}
+</script>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
