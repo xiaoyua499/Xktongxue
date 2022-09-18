@@ -3,7 +3,7 @@
     <!-- 月份与上下课时间 -->
     <div class="left">
       <ul>
-        <li>9月</li>
+        <li>{{month}}月</li>
         <li v-for="(item,index) in schedule" :key="index">
           <p>{{item.classNum}}</p>
           <span>{{item.timeStarts}}</span>
@@ -15,10 +15,7 @@
       <!-- 日期与对应星期 -->
       <div class="date">
         <ul>
-          <li v-for="(item,index) in week" :key="index">
-            <p>{{item.weekNum}}</p>
-            <p>{{item.date}}</p>
-          </li>
+          <CurrentWeek />
         </ul>
       </div>
       <!-- 课程内容 -->
@@ -44,9 +41,12 @@
 </template>
       
 <script>
+import { mapMutations } from 'vuex';
 import ClassConfigure from './ClassConfigure.vue';
+import CurrentWeek from './CurrentWeek.vue';
 export default {
   name: "ClassConcent",
+  components: { ClassConfigure, CurrentWeek },
   data() {
     return {
       show: false,
@@ -93,37 +93,6 @@ export default {
           timeEnds: "16:55"
         },
       ],
-      //星期
-      week: [
-        {
-          weekNum: "一",
-          date: "12"
-        },
-        {
-          weekNum: "二",
-          date: "13"
-        },
-        {
-          weekNum: "三",
-          date: "14"
-        },
-        {
-          weekNum: "四",
-          date: "15"
-        },
-        {
-          weekNum: "五",
-          date: "16"
-        },
-        {
-          weekNum: "六",
-          date: "17"
-        },
-        {
-          weekNum: "日",
-          date: "18"
-        },
-      ],
       //课程详情
       classDetails: [
         [
@@ -133,27 +102,17 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "",
-            //课程名称
-            className: "",
-            //任课教师
-            teacher: "",
-            // 教室
-            classroom: "",
-          },
-          {
-            //是否有课
-            isHave: true,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -161,13 +120,17 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
-            className: "",
+            className: "C语言",
             //任课教师
-            teacher: "",
+            teacher: "张晓",
             // 教室
-            classroom: ""
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -175,13 +138,35 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
         [
@@ -195,9 +180,13 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -205,27 +194,17 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -233,13 +212,35 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: false,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
         [
@@ -253,23 +254,13 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
-          },
-          {
-            //是否有课
-            isHave: true,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -277,13 +268,35 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: false,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -291,13 +304,17 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
         [
@@ -311,37 +328,13 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -349,13 +342,127 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: false,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+        ],
+        [
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: true,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
         [
@@ -369,23 +476,13 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
-          },
-          {
-            //是否有课
-            isHave: true,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -393,13 +490,17 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -407,13 +508,35 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
+          },
+          {
+            //是否有课
+            isHave: false,
+            //课程时长
+            classTime: true,
+            //课程开始节数
+            classBegin: "1",
+            //课程名称
+            className: "C语言",
+            //任课教师
+            teacher: "张晓",
+            // 教室
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
         [
@@ -427,54 +550,14 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
-          {
-            //是否有课
-            isHave: true,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
-          },
-        ],
-        [
           {
             //是否有课
             isHave: false,
@@ -485,9 +568,13 @@ export default {
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
             classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
@@ -495,41 +582,35 @@ export default {
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
           {
             //是否有课
-            isHave: false,
+            isHave: true,
             //课程时长
             classTime: true,
             //课程开始节数
-            classBegin: "5",
+            classBegin: "1",
             //课程名称
             className: "C语言",
             //任课教师
-            teacher: "张啸",
+            teacher: "张晓",
             // 教室
-            classroom: "A301"
-          },
-          {
-            //是否有课
-            isHave: false,
-            //课程时长
-            classTime: true,
-            //课程开始节数
-            classBegin: "5",
-            //课程名称
-            className: "C语言",
-            //任课教师
-            teacher: "张啸",
-            // 教室
-            classroom: "A301"
+            classroom: "A301",
+            //开始时间
+            timeStarts: "08:15",
+            //结束时间
+            timeEnds: "09:00"
           },
         ],
       ],
@@ -537,11 +618,16 @@ export default {
       newClassDetails: '',
       //课程对应的行与列
       index1: '',
-      index2: ''
+      index2: '',
+      //获取当前月
+      month: '',
+      //获取当日课程
+      currentClass:[]
     };
   },
   mounted() {
     this.randomRgb();
+    this.getDate()
   },
   watch: {
     //监视数据是否改变
@@ -550,6 +636,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('Home', ['getCurrentClass']),
     //开启弹出层，获取对应元素坐标
     getIndex(i1, i2) {
       this.index1 = i1
@@ -574,8 +661,26 @@ export default {
         background: "rgb(" + R + "," + G + "," + B + ", .5)"
       };
     },
+    //获取当前日期与当日课程
+    getDate() {
+      let date = new Date()
+      this.month = date.getMonth() + 1 //当前月
+      let day = date.getDay()
+      if (day != 0) {
+        day = day - 1
+      } else {
+        day = 6
+      }
+      this.classDetails[day].forEach((item) => {
+        if (item.isHave) {
+          this.currentClass.push(item)
+        }
+      })
+      this.getCurrentClass(this.currentClass)
+      // console.log(this.currentClass);
+    }
   },
-  components: { ClassConfigure }
+
 }
 </script>
 
@@ -662,7 +767,7 @@ export default {
           .col {
             height: 100%;
             width: 100%;
-            
+
 
             .bgc {
               box-sizing: border-box;
@@ -683,7 +788,8 @@ export default {
       }
     }
   }
-  .popup{
+
+  .popup {
     border-radius: 5%;
   }
 }
