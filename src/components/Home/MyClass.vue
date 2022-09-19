@@ -1,36 +1,38 @@
 <template>
-  <div>
+
+  <div class="todayCourse">
     今日课程
-    <p v-for="(item,index) in MyClass" :key="index">{{item.ClassName}}</p>
+    <p v-for="(item,index) in MyClass" :key="index">
+      {{item.className}}
+    </p>
   </div>
-  
+
 </template>
 
 <script>
-import { computed } from 'vue'
 import { mapState } from 'vuex'
+
 export default {
-  name: 'MyClass',
+  name: "MyClass",
   data() {
     return {
-      MyClass:[]
-    }
+      MyClass: [],
+
+    };
   },
   computed: {
-    ...mapState('Home', ['CurrentClass']),
-    // MyClass(){
-    //   return this.CurrentClass
-    // }
+    ...mapState("Home", ["CurrentClass"]),
   },
-  mounted(){
-    this.getMyClass()
+  created() {
+    this.getMyClass();
   },
-  methods:{
-    getMyClass(){
-      this.MyClass=this.CurrentClass
-      console.log(this.CurrentClass);
-    }
-  }
+  methods: {
+    //获取今日课表
+    getMyClass() {
+      this.MyClass = JSON.parse(sessionStorage.getItem("CurrentClass"));
+      console.log(this.MyClass);
+    },
+  },
 }
 </script>
 
