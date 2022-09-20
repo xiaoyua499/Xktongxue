@@ -1,12 +1,16 @@
 <template>
-  <div style="margin-top: 30px;" class="weather">
-    <div class="date"> {{ weather.date }} </div>
-    <div class="week">{{weather.week}}</div>
-    <svg class="icon" aria-hidden="true">
-      <use :xlink:href="weather.wea_img"></use>
-    </svg>
-    <div class="wea">{{ weather.wea }}</div>
-    <div>{{ weather.tem }} ℃</div>
+  <div  class="weather">
+    <div class="weatherLeft">
+      <div class="date"> {{ weather.date }} </div>
+      <div class="week">{{weather.week}}</div>
+    </div>
+    <div class="weatherRight">
+      <svg class="icon" aria-hidden="true">
+        <use :xlink:href="weather.wea_img"></use>
+      </svg>
+      <div class="wea">{{ weather.wea }}</div>
+      <div class="tem">{{ weather.tem }} ℃</div>
+    </div>
   </div>
 </template>
 
@@ -96,27 +100,50 @@ export default {
 .weather {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: baseline;
-  background-color: rgb(240, 236, 236);
+  // margin-top: 10px;
+  height: 20px;
+  // background-color: rgb(240, 236, 236);
   border-radius: 10px;
+  color: #fff;
 
-  .week {
-    margin-left: 5px;
+  .weatherLeft {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    .week {
+      height: 100%;
+      margin-left: 5px;
+      font-size: 12px;
+    }
   }
 
-  .icon {
-    position: absolute;
-    top: -5px;
-    left: 197px;
-    width: 30px;
-    height: 30px;
+  .weatherRight {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    .icon {
+      position: absolute;
+      top: -5px;
+      left: 250px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .wea {
+      margin-left: 35px;
+      margin-right: 5px;
+      height: 100%;
+    }
+
+    .tem {
+      height: 100%;
+    }
   }
 
-  .wea {
-    margin-left: 35px;
-    margin-right: 5px;
-  }
 }
 </style>
 
