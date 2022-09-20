@@ -1,10 +1,18 @@
 <template>
-
   <div class="todayCourse">
-    今日课程
-    <p v-for="(item,index) in MyClass" :key="index">
-      {{item.className}}
-    </p>
+    <p class="courseTitle">今日课程</p>
+    <div class="course" v-for="(item,index) in MyClass" :key="index">
+      <div class="courseTop">
+        <span class="starts">{{item.timeStarts}}</span>
+        <span> | </span>
+        <span class="ends">{{item.timeEnds}}</span>
+      </div>
+      <div class="courseContent">
+        <h1 class="name">{{item.className}}</h1>
+        <span class="teacher">{{item.teacher}}</span>
+      </div>
+      <div class="courseBottom">{{item.classroom}}</div>
+    </div>
   </div>
 
 </template>
@@ -17,7 +25,6 @@ export default {
   data() {
     return {
       MyClass: [],
-
     };
   },
   computed: {
@@ -36,6 +43,49 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+.todayCourse {
+  box-sizing: border-box;
+  margin-top: 30px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5%;
+  background-color: #fff;
 
+  .courseTitle {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
+  .course {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .courseTop {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .courseContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .name {
+        margin: 0;
+        font-size: 16px;
+      }
+      .teacher{
+        margin-left: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+}
 </style>
