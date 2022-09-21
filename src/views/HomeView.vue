@@ -5,21 +5,24 @@
       <Swipe class="swipe" />
     </div>
     <div class="bottom">
+      <FunBar />
       <MyClass />
+      <TieBa />
     </div>
   </div>
-
 </template>
 
 <script>
 import MyClass from '@/components/Home/MyClass.vue';
 import Weather from '@/components/Home/Weather.vue';
 import Swipe from '@/components/Home/Swipe.vue';
+import FunBar from '@/components/Home/FunBar.vue';
+import TieBa from '@/components/Home/TieBa.vue';
 // @ is an alias to /src
 
 export default {
   name: "HomeView",
-  components: { MyClass, Weather, Swipe }
+  components: { MyClass, Weather, Swipe, FunBar,  TieBa }
 }
 </script>
 
@@ -46,10 +49,11 @@ export default {
     height: 10%;
     padding: 10px;
     background-color: #6484cf;
-    .swipe{
+
+    .swipe {
       position: absolute;
       top: 45px;
-      left: 10px;
+      left: 1 0px;
       width: 95%;
       // height: 80%;
       z-index: 999;
@@ -60,7 +64,7 @@ export default {
   .bottom {
     height: 90%;
     padding: 10px;
-    padding-top: 75px;
+    padding-top: 105px;
     background-color: rgb(240, 236, 236);
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <div class="todayCourse">
-    <p class="courseTitle">今日课程</p>
+    <div class="TitleTop">
+      <p class="courseTitle">今日课程</p>
+      <span class="ClassNum">{{MyClass.length}}门课</span>
+    </div>
     <div class="course" v-for="(item,index) in MyClass" :key="index">
       <div class="courseTop">
         <span class="starts">{{item.timeStarts}}</span>
@@ -46,17 +49,29 @@ export default {
 <style lang="less" scoped>
 .todayCourse {
   box-sizing: border-box;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 10px;
   width: 100%;
   border-radius: 5%;
   background-color: #fff;
 
-  .courseTitle {
-    text-align: left;
-    margin-bottom: 10px;
-    margin-top: 0;
+  .TitleTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .courseTitle {
+      text-align: left;
+      margin-bottom: 10px;
+      margin-top: 0;
+      font-weight: 800;
+    }
+
+    .ClassNum{
+      font-size: 12px;
+    }
   }
+
 
   .course {
     display: flex;
@@ -81,7 +96,8 @@ export default {
         margin: 0;
         font-size: 16px;
       }
-      .teacher{
+
+      .teacher {
         margin-left: 5px;
         font-size: 14px;
       }

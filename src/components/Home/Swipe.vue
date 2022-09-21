@@ -2,10 +2,21 @@
   <div>
     <div class="Swipe">
       <van-swipe class="my-swipe" :autoplay="3000" :height="100" indicator-color="white">
-        <van-swipe-item>1</van-swipe-item>
-        <van-swipe-item>2</van-swipe-item>
-        <van-swipe-item>3</van-swipe-item>
-        <van-swipe-item>4</van-swipe-item>
+        <van-swipe-item>
+          <img src="@/assets/swipe/1.jpg" alt="">
+        </van-swipe-item>
+        <van-swipe-item>
+          <img src="@/assets/swipe/2.jpg" alt="">
+        </van-swipe-item>
+        <van-swipe-item>
+          <img src="@/assets/swipe/3.jpg" alt="">
+        </van-swipe-item>
+        <van-swipe-item>
+          <img src="@/assets/swipe/4.jpg" alt="">
+        </van-swipe-item>
+        <van-swipe-item>
+          <img src="@/assets/swipe/5.jpg" alt="">
+        </van-swipe-item>
       </van-swipe>
     </div>
     <span class="swipeBottom">
@@ -17,8 +28,11 @@
 
 <script>
 export default {
-  name: 'Swipe'
-
+  name: 'Swipe',
+  data() {
+    return {
+    }
+  },
 }
 </script>
 
@@ -43,6 +57,10 @@ export default {
       background-color: #39a9ed;
       // border-radius: 15px;
       z-index: 999;
+      img{
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }
