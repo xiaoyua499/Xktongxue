@@ -686,7 +686,7 @@ export default {
 
 <style lang="less" scoped>
 .Class {
-  height: 572px;
+  height: 11.44rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -704,7 +704,7 @@ export default {
       height: 100%;
 
       li {
-        height: 57px;
+        height: 1.14rem;
         display: flex;
         flex-flow: column;
         justify-content: center;
@@ -715,7 +715,7 @@ export default {
         }
 
         span {
-          font-size: 12px;
+          font-size: .24rem;
         }
       }
     }
@@ -761,7 +761,7 @@ export default {
           box-sizing: border-box;
           height: 25%;
           width: 100%;
-          padding: 2px;
+          padding: .04rem;
 
 
           .col {
@@ -774,7 +774,7 @@ export default {
               display: flex;
               flex-flow: column;
               justify-content: center;
-              font-size: 12px;
+              font-size: .24rem;
               height: 100%;
               width: 100%;
 

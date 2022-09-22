@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name:'CurrentWeek',
+  name: 'CurrentWeek',
   data() {
     return {
       weeks: [],
@@ -87,13 +87,13 @@ export default {
       // console.log(this.months);
 
       if (a == 'left') {
-        // $(".dayitem").removeClass("finish");
+        // $(".dayitem")NaNpxoveClass("finish");
         this.flag = this.months[this.months.length - 1].date;
         var temp1 = temp;
         temp1.setDate(temp1.getDate() - temp1.getDay() + 7);
         this.getTimes(temp1);
       } else if (a == 'right') {
-        // $(".dayitem").removeClass("finish");
+        // $(".dayitem")NaNpxoveClass("finish");
         this.flag = this.months[0].date;
         var temp1 = temp;
         this.getTimes(temp1);
@@ -139,159 +139,54 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="less">
 .times {
-  /* height: 5.4rem; */
   width: 100%;
-  padding: 0.75rem 0.75rem 0rem;
   text-align: center;
-  margin-bottom: 0.75rem;
+
+  .time-bottom {
+    .week {
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+
+      span {
+        text-align: center;
+        flex: 1;
+        color: #8A8A8A;
+        font-size: .32rem;
+      }
+    }
+  }
+
+  .day {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+
+    span {
+      flex: 1;
+    }
+
+    .dayitem {
+      width: .4rem;
+      height: .4rem;
+      border-radius: 50%;
+      color: #838385;
+      font-size: .32rem;
+      display: inline-block;
+      line-height: .4rem;
+      text-align: center;
+    }
+  }
 }
 
-.time-top {
-  width: 100%;
-  height: 1.5rem;
-}
-
-.aui-icon-left,
-.aui-icon-right {
-  width: 0.35rem;
-  height: 0.7rem;
-  color: #999999;
-}
-
-.currenttime {
-  color: #191919;
-  font-size: 0.75rem;
-}
-
-.week,
-.day {
-  width: 100%;
-  text-align: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.week span {
-  flex: 1;
-  color: #8A8A8A;
-  font-size: 0.75rem;
-}
-
-.day span {
-  flex: 1;
-}
-
-.dayitem {
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 50%;
-  color: #838385;
-  font-size: 0.75rem;
-  display: inline-block;
-  line-height: 1.2rem;
-  text-align: center;
-}
-
-.time-bottom span {
-  text-align: center;
-}
-
-.week {
-  /* margin-top: 0.5rem; */
-  margin-bottom: 0.25rem;
-}
-
-.walk {
-  width: 100%;
-  height: 11rem;
-  margin-bottom: 10px;
-  /* background: url("../image/cdshwalk.png") no-repeat; */
-  background-size: 100% 100%;
-  border-radius: 0.25rem;
-  position: relative;
-}
-
-.walk-top {
-  padding-top: 0.5rem;
-  padding-left: 0.4rem;
-  padding-right: 0.5rem;
-}
-
-.walk-top span:nth-of-type(2) {
-  margin-right: 0.15rem;
-  color: #999;
-  font-size: 0.6rem;
-}
-
-.walk-top img {
-  display: inline-block;
-}
-
-.walk-top img:nth-of-type(1) {
-  width: 0.75rem;
-  height: 0.75rem;
-  vertical-align: middle;
-}
-
-.walk-top .self {
-  display: inline-block;
-  width: 2.25rem;
-  text-align: center;
-  border-radius: 0.25rem;
-  line-height: 0.75rem;
-  height: 0.75rem;
-  /* background: url("../image/cdsbradiu.png") no-repeat; */
-  background-size: 100% 100%;
-  font-size: 0.4rem;
-  color: #fff;
-}
-
-.walk-top span:nth-of-type(4) {
-  float: right;
-  color: #23ACF8;
-  font-size: 0.6rem;
-}
-
-.bodystate {
-  position: absolute;
-  bottom: 0.5rem;
-  width: 100%;
-  padding-left: 0.75rem;
-  color: #959595;
-  font-size: 0.6rem;
-}
-
-.btcl {
-  width: 100%;
-  height: 6rem;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 20px;
-}
-
-.bodystate img {
-  width: 0.6rem;
-  height: 0.6rem;
-  margin-right: 0.25rem;
-  display: inline-block;
-}
-
-.btcl p {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 2.5rem;
-  background: #55CB93;
-  box-shadow: 0.05rem 0.05rem 0.75rem 0.1rem #9af7cb;
-  color: #FFFFFF;
-  line-height: 3.5rem;
-  text-align: center;
-  font-size: 0.75rem;
-}
 
 .finish {
   background: #8ACBAD;
@@ -306,9 +201,4 @@ export default {
   pointer-events: none;
 }
 
-.warp {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 </style>
