@@ -22,38 +22,38 @@ import TieBa from '@/components/Home/TieBa.vue';
 
 export default {
   name: "HomeView",
-  components: { MyClass, Weather, Swipe, FunBar,  TieBa }
+  components: { MyClass, Weather, Swipe, FunBar, TieBa }
 }
 </script>
 
 <style lang="less" scoped>
 .home {
   position: relative;
-  height: 617px;
+  height: 12.34rem;
 
   &:after {
     content: " ";
     position: absolute;
-    top: 57px;
+    top: 1.14rem;
     left: 0;
     display: inline-block;
     width: 100%;
-    height: 50px;
+    height: 1rem;
     border-radius: 50%;
     background-color: #6484cf;
   }
 
-  // padding: 0 10px;
+  // padding: 0 .2rem;
   .top {
     position: relative;
     height: 10%;
-    padding: 10px;
+    padding: .2rem;
     background-color: #6484cf;
 
     .swipe {
       position: absolute;
-      top: 45px;
-      left: 1 0px;
+      top: .9rem;
+      left: 1 0rem;
       width: 95%;
       // height: 80%;
       z-index: 999;
@@ -63,8 +63,8 @@ export default {
 
   .bottom {
     height: 90%;
-    padding: 10px;
-    padding-top: 105px;
+    padding: .2rem;
+    padding-top: 2.1rem;
     background-color: rgb(240, 236, 236);
   }
 }

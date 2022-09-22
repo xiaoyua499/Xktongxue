@@ -49,8 +49,8 @@ export default {
 <style lang="less" scoped>
 .todayCourse {
   box-sizing: border-box;
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: .2rem;
+  padding: .2rem;
   width: 100%;
   border-radius: 5%;
   background-color: #fff;
@@ -62,13 +62,13 @@ export default {
 
     .courseTitle {
       text-align: left;
-      margin-bottom: 10px;
+      margin-bottom: .2rem;
       margin-top: 0;
       font-weight: 800;
     }
 
     .ClassNum{
-      font-size: 12px;
+      font-size: .24rem;
     }
   }
 
@@ -77,14 +77,14 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: .1rem;
 
     .courseTop {
       display: flex;
       flex-flow: column;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      font-size: .24rem;
     }
 
     .courseContent {
@@ -94,12 +94,12 @@ export default {
 
       .name {
         margin: 0;
-        font-size: 16px;
+        font-size: .32rem;
       }
 
       .teacher {
-        margin-left: 5px;
-        font-size: 14px;
+        margin-left: .1rem;
+        font-size: .28rem;
       }
     }
   }

@@ -51,20 +51,20 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 1rem;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: .16rem;
   .fun{
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     .icon{
-      width: 30px;
-      height: 30px;
+      width: .6rem;
+      height: .6rem;
     }
     span{
-      font-size: 12px;
+      font-size: .24rem;
     }
   }
 }

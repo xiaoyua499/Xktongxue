@@ -48,15 +48,16 @@ export default {
 
 <style lang="less" scoped>
 .tieBa {
-  margin-top: 10px;
+  margin-top: .2rem;
   background-color: #fff;
+  border-radius: .16rem;
 
   .tieBaTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
-    border-bottom: 1px solid rgb(240, 236, 236);
+    padding: .1rem .2rem;
+    border-bottom: .02rem solid rgb(240, 236, 236);
 
     .title {
       margin: 0;
@@ -69,23 +70,23 @@ export default {
       align-items: center;
 
       span {
-        font-size: 12px;
+        font-size: .24rem;
       }
 
       .icon {
-        width: 12px;
-        height: 12px;
+        width: .24rem;
+        height: .24rem;
       }
     }
   }
 
   .TiebaBottom {
-    padding: 5px 10px;
-    border-bottom: 1px solid rgb(240, 236, 236);
+    padding: .1rem .2rem;
+    border-bottom: .02rem solid rgb(240, 236, 236);
 
     .content {
       text-align: left;
-      font-size: 14px;
+      font-size: .28rem;
       font-weight: 700;
     }
 
@@ -93,7 +94,7 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      font-size: .24rem;
     }
   }
 

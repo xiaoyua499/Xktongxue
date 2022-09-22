@@ -102,10 +102,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  // margin-top: 10px;
-  height: 20px;
+  // margin-top: .2rem;
+  height: .4rem;
   // background-color: rgb(240, 236, 236);
-  border-radius: 10px;
+  border-radius: .2rem;
   color: #fff;
 
   .weatherLeft {
@@ -115,8 +115,8 @@ export default {
 
     .week {
       height: 100%;
-      margin-left: 5px;
-      font-size: 12px;
+      margin-left: .1rem;
+      font-size: .24rem;
     }
   }
 
@@ -127,15 +127,15 @@ export default {
 
     .icon {
       position: absolute;
-      top: -5px;
-      left: 250px;
-      width: 30px;
-      height: 30px;
+      top: -0.1rem;
+      left: 5rem;
+      width: .6rem;
+      height: .6rem;
     }
 
     .wea {
-      margin-left: 35px;
-      margin-right: 5px;
+      margin-left: .7rem;
+      margin-right: .1rem;
       height: 100%;
     }
 

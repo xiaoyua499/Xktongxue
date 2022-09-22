@@ -40,22 +40,22 @@ export default {
 .Swipe {
   position: relative;
   box-sizing: border-box;
-  padding: 10px;
-  height: 124px;
+  padding: .2rem;
+  height: 2.48rem;
   background-color: #fff;
-  border: 2px solid #5d7dc5;
-  border-radius: 20px;
+  border: .04rem solid #5d7dc5;
+  border-radius: .4rem;
 
   .my-swipe {
-    border-radius: 15px;
+    border-radius: .3rem;
 
     .van-swipe-item {
       color: #fff;
-      font-size: 20px;
-      line-height: 100px;
+      font-size: .4rem;
+      line-height: 2rem;
       text-align: center;
       background-color: #39a9ed;
-      // border-radius: 15px;
+      // border-radius: .3rem;
       z-index: 999;
       img{
         height: 100%;
@@ -67,26 +67,26 @@ export default {
 
 .swipeBottom {
   position: relative;
-  top: -15px;
+  top: -0.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: -1;
 
   .Bottom1 {
-    margin-right: 220px;
-    height: 20px;
-    width: 15px;
+    margin-right: 4.4rem;
+    height: .4rem;
+    width: .3rem;
     background-color: #5d7dc5;
-    border-radius: 3px;
+    border-radius: .06rem;
   }
 
   .Bottom2 {
     margin: 0;
-    height: 20px;
-    width: 15px;
+    height: .4rem;
+    width: .3rem;
     background-color: #5d7dc5;
-    border-radius: 3px;
+    border-radius: .06rem;
   }
 
 }

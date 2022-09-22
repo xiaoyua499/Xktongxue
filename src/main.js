@@ -11,6 +11,7 @@ Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 getVant()
 
+
 new Vue({
   router,
   store,
