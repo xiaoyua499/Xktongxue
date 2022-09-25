@@ -4,7 +4,7 @@
       <p class="courseTitle">今日课程</p>
       <span class="ClassNum">{{MyClass.length}}门课</span>
     </div>
-    <div class="course" v-for="(item,index) in MyClass" :key="index">
+    <div class="course" v-for="(item,index) in MyClass" :key="index" v-show="show">
       <div class="courseTop">
         <span class="starts">{{item.timeStarts}}</span>
         <span> | </span>
@@ -15,6 +15,9 @@
         <span class="teacher">{{item.teacher}}</span>
       </div>
       <div class="courseBottom">{{item.classroom}}</div>
+    </div>
+    <div class="course" v-show="!show">
+      <h1 class="none">今天没有课啦！！！</h1>
     </div>
   </div>
 
@@ -27,7 +30,10 @@ export default {
   name: "MyClass",
   data() {
     return {
+      //今日课表
       MyClass: [],
+      //是否显示课表
+      show: true
     };
   },
   computed: {
@@ -39,7 +45,13 @@ export default {
   methods: {
     //获取今日课表
     getMyClass() {
-      this.MyClass = JSON.parse(sessionStorage.getItem("CurrentClass"));
+      let myClass = JSON.parse(sessionStorage.getItem("CurrentClass"));
+      if (myClass == null) {
+        this.show = false
+        this.MyClass.length = 0
+      } else {
+        this.MyClass = myClass
+      }
       console.log(this.MyClass);
     },
   },
@@ -67,7 +79,7 @@ export default {
       font-weight: 800;
     }
 
-    .ClassNum{
+    .ClassNum {
       font-size: .24rem;
     }
   }
@@ -101,6 +113,9 @@ export default {
         margin-left: .1rem;
         font-size: .28rem;
       }
+    }
+    .none{
+      margin: 20px auto;
     }
   }
 }
