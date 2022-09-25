@@ -3,7 +3,7 @@
     <div class="userDetails">
       <div class="detailsLeft">
         <img class="head" src="@/assets/User/NO.0003.png" alt="">
-        <h1 class="name">小宇啊</h1>
+        <h1 class="name">{{user.username}}</h1>
       </div>
       <div class="detailsRight">
         <svg class="icon" aria-hidden="true">
@@ -68,8 +68,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-
+  name: 'User',
+  computed: {
+    ...mapState('Login', ['user'])
+  },
 }
 </script>
 
